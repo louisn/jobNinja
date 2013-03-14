@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.phonegap.jobninja"
+        versionCode="10" 
+        version   = "2.3.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Job Ninja</name>
+
+    <description>
+        find your dream job
+    </description>
+
+    <author href="https://build.phonegap.com" email="support@phonegap.com">
+        Joe Naber 
+    </author>
+
+	
+	<icon src=".images/logo.gif" gap:platform="ios" width="57" height="57" />
+	<icon src=".images/logo.gif" gap:platform="ios" width="72" height="72" />
+	<icon src=".images/logo.gif" gap:platform="ios" width="114" height="114" />
+	<feature name="http://api.phonegap.com/1.0/device" />
+	<feature name="http://api.phonegap.com/1.0/battery"/>
+	<feature name="http://api.phonegap.com/1.0/camera"/>
+	<feature name="http://api.phonegap.com/1.0/contacts"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/media"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/notification"/>
+	
+</widget>

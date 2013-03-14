@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="format-detection" content="telephone-no">
+		<meta name="viewport" content="user-scalable-no, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.mobile-1.3.0.js"></script>
+		<title>jobFinder</title>
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.3.0.css">
+		<script src="cordova.ios.js"></script>
+		<!--<script src="http://debug.phonegap.com/target/target-script-min.js#jobfinder"></script>-->
+		<script>
+            /* INITIALIZE */
+			function init(){
+				document.addEventListener("deviceready", onDeviceReady, false);
+			}
+
+			/* ON READY */
+			function onDeviceReady() {
+			    alert('your files have been deleted');
+			    $('#devicename').html("dummy device name (proof of working jquery)");
+			    $('#devicename').html(device.name);
+			    $('#devicephonegap').html(device.phonegap);
+			    $('#deviceplatform').html(device.platform);
+			    $('#deviceuuid').html(device.uuid);
+			    $('#deviceversion').html(device.version);
+
+			    var wId = navigator.accelerometer.watchAcceleration(onSuccess, onError, {frequency: 1000});/*sets a watch id on accelerometer with a frequency callback*/
+			        
+			    navigator.camera.getPicture(onSuccessCam, onErrorCam, { quality: 50, destinationType: Camera.DestinationType.FILE_URI});   
+			    navigator.geolocation.watchPosition(onSuccessGeo, onErrorGeo, { frequency: 5000});
+
+				var networkstate = navigator.connection.type;
+				alert (networkstate);
+				if (networkstate == "none"){
+					$(".offline").css("visibility","visible");
+				}
+			}
+
+		    /* ACCELEROMETER */
+			function onSuccess(a){
+			    $('aX').html(a.x);
+			    $('aY').html(a.y);
+			    $('aZ').html(a.z);
+			    $('aTime').html(a.timestamp);
+			}
+			function onError(){
+			
+			}
+
+            /* CAMERA */
+			function onSuccessCam(fileUri){
+			    $('#imageuri').html(fileUri);
+			    
+			}
+			function onErrorCam(){
+			
+			}
+
+		    /* GEOLOCATION */
+			function onSuccessGeo(p){
+			    $('#lat').html(p.coords.latitude);
+			    $('#lon').html(p.coords.longitude);
+			}
+			function onErrorGeo(){
+			
+			}
+
+		</script>
+	</head>
+	<body onload="init()">
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+		<div data-role="page" id="main">
+			<div data-role="header" class="logo">
+				<img src="images/logo.gif" />
+			</div>
+			<div data-role="content">
+                <div data-role="navbar" data-grid="d">
+                    <ul>
+                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
+                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
+                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
+                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
+                    </ul>
+                </div>
+                <h1>Welcome</h1>
+				<button onclick="onDeviceReady()">fire device ready</button>
+			</div>
+			<div data-role="footer" data-theme="c">
+				<h2 class="offline">Offline Mode</h2>
+			</div>
+		</div>
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+		<div data-role="page" id="deviceInfo">
+			<div data-role="header" class="logo">
+				<img src="images/logo.gif" />
+			</div>
+			<div data-role="content">
+                <div data-role="navbar" data-grid="d">
+                    <ul>
+                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
+                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
+                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
+                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
+                    </ul>
+                </div>
+                <h1>Device Info</h1>
+				<button onclick="onDeviceReady()">fire device ready</button>
+                <p id="devicename">device name</p>
+                <p id="devicephonegap">phone gap version</p>
+                <p id="deviceplatform">device platform</p>
+                <p id="deviceuuid">unique id</p>
+                <p id="deviceversion">device version</p>
+            </div>
+			<div data-role="footer" data-theme="c">
+				<h2 class="offline">Offline Mode</h2>
+			</div>
+		</div>
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+		<div data-role="page" id="accelerometerInfo">
+			<div data-role="header" class="logo">
+				<img src="images/logo.gif" />
+			</div>
+        	<div data-role="content">
+                <div data-role="navbar" data-grid="d">
+                    <ul>
+                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
+                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
+                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
+                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
+                    </ul>
+                </div>
+                <h1>Accelerometer Info</h1>
+				<button onclick="onDeviceReady()">fire device ready</button>
+                <p id="aX">x coordinate</p>
+                <p id="aY">y coordinate</p>
+                <p id="aZ">z coordinate</p>
+                <p id="aTime">time</p>
+            </div>
+			<div data-role="footer" data-theme="c">
+				<h2 class="offline">Offline Mode</h2>
+			</div>
+		</div>
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+		<div data-role="page" id="cameraInfo">
+			<div data-role="header" class="logo">
+				<img src="images/logo.gif" />
+			</div>
+			<div data-role="content">
+                <div data-role="navbar" data-grid="d">
+                    <ul>
+                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
+                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
+                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
+                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
+                    </ul>
+                </div>
+                <h1>Image Info</h1>
+				<button onclick="onDeviceReady()">fire device ready</button>
+                <p id="imageuri">image uri</p>
+            </div>
+			<div data-role="footer" data-theme="c">
+				<h2 class="offline">Offline Mode</h2>
+			</div>
+		</div>
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
+        <div data-role="page" id="geolocation">
+			<div data-role="header" class="logo">
+				<img src="images/logo.gif" />
+			</div>
+			<div data-role="content">
+                <div data-role="navbar" data-grid="d">
+                    <ul>
+                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
+                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
+                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
+                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
+                    </ul>
+                </div>
+                <h1>GeoLocation</h1>
+				<button onclick="onDeviceReady()">fire device ready</button>
+                <p id="lat"></p>
+                <p id="lon"></p>
+            </div>
+			<div data-role="footer" data-theme="c">
+				<h2 class="offline">Offline Mode</h2>
+			</div>
+		</div>
+	</body>
+</html>
+
