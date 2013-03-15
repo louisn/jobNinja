@@ -10,12 +10,13 @@
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.3.0.css">
 		<script src="cordova.ios.js"></script>
-		<!--<script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>-->
+		<script src="http://debug.phonegap.com/target/target-script-min.js#anonymous"></script>
+		<script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>
 		<script>
             /* INITIALIZE */
 			function init(){
 				document.addEventListener("deviceready", onDeviceReady, false);
-			} 
+			}
 
 			/* ON READY */
 			function onDeviceReady() {
@@ -39,7 +40,7 @@
 				}
 			}
 
-		    /* ACCELEROMETER */ 
+		    /* ACCELEROMETER */
 			function onSuccess(a){
 			    $('aX').html(a.x);
 			    $('aY').html(a.y);
