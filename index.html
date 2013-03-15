@@ -11,8 +11,7 @@
 		<link rel="stylesheet" href="css/themes/default/jquery.mobile-1.3.0.css">
 		<script src="cordova.ios.js"></script>
 		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
-
+		<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
 		<!--<script src="http://debug.phonegap.com/target/target-script-min.js#joenaber"></script>-->
 		<!--<script src="http://localhost:8080/target/target-script-min.js#anonymous"></script>-->
 		<script>
@@ -47,6 +46,10 @@
 					position: currentposition,
 					map: map
 			});
+			
+			$('#lat').html("latitude: " + lat);
+			$('#lon').html("longitude: " + lon);
+			
 		}
 			
 		function onGeoError(error){
@@ -60,7 +63,14 @@
 			navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError)
 		}
 			
-			
+		function showProperties() {
+			var element = document.getElementById('properties');
+			element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
+							   'Device PhoneGap: ' + device.phonegap + '<br />' + 
+								'Device Platform: ' + device.platform + '<br />' + 
+								'Device UUID: '     + device.uuid     + '<br />' + 
+							   'Device Version: '  + device.version  + '<br />';
+		}
 			
 		</script>
 	</head>
@@ -76,7 +86,7 @@
                 <div data-role="navbar" data-grid="d">
                     <ul>
                         <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
                         <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
                         <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
                         <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
@@ -92,7 +102,7 @@
         <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
         <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
         <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-		<div data-role="page" id="deviceInfo">
+		<div data-role="page" id="Info">
 			<div data-role="header" class="logo">
 				<img src="images/logo.gif" />
 			</div>
@@ -100,19 +110,15 @@
                 <div data-role="navbar" data-grid="d">
                     <ul>
                         <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
                         <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
                         <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
                         <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
                     </ul>
                 </div>
                 <h1>Device Info</h1>
-				<button onclick="onDeviceReady()">fire device ready</button>
-                <p id="devicename">device name</p>
-                <p id="devicephonegap">phone gap version</p>
-                <p id="deviceplatform">device platform</p>
-                <p id="deviceuuid">unique id</p>
-                <p id="deviceversion">device version</p>
+				<button onclick="showProperties()">Show Device Properties</button>
+                <div id="properties">  </div>
             </div>
 			<div data-role="footer" data-theme="c">
 				<h2 class="offline">Offline Mode</h2>
@@ -129,7 +135,7 @@
                 <div data-role="navbar" data-grid="d">
                     <ul>
                         <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
                         <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
                         <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
                         <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
@@ -157,14 +163,14 @@
                 <div data-role="navbar" data-grid="d">
                     <ul>
                         <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
                         <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
                         <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
                         <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
                     </ul>
                 </div>
                 <h1>Image Info</h1>
-				<button onclick="onDeviceReady()">fire device ready</button>
+				<button onclick="window.open("http://www.tempworks.com","_blank", "location=yes");>in-App browser BLOG</button>
                 <p id="imageuri">image uri</p>
             </div>
 			<div data-role="footer" data-theme="c">
@@ -182,7 +188,7 @@
                 <div data-role="navbar" data-grid="d">
                     <ul>
                         <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#deviceInfo" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
+                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
                         <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
                         <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
                         <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
