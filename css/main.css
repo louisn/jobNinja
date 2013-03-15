@@ -7,3 +7,8 @@
 	color:red;
 	font-style:italic;
 }
+
+#map{
+width:100%;
+height:200px;
+}
