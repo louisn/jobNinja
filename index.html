@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="format-detection" content="telephone-no">
-		<meta name="viewport" content="user-scalable-no, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 width=device-width, height=device-height, target-densitydpi=device-dpi"/>
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery.mobile-1.3.0.js"></script>
 		<title>jobFinder</title>
@@ -72,138 +72,148 @@
 							   'Device Version: '  + device.version  + '<br />';
 		}
 			
+		function openWindow() {
+		    window.open("http://www.tempworks.com", "_blank", "location=yes");
+		}
+
+
+	
+
 		</script>
 	</head>
 	<body onload="init()">
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-		<div data-role="page" id="main">
-			<div data-role="header" class="logo">
-				<img src="images/logo.gif" />
-			</div>
-			<div data-role="content">
-                <div data-role="navbar" data-grid="d">
-                    <ul>
-                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
-                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
-                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
-                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
-                    </ul>
-                </div>
-                <h1>Welcome</h1>
-				<button onclick="onDeviceReady()">fire device ready</button>
-			</div>
-			<div data-role="footer" data-theme="c">
-				<h2 class="offline">Offline Mode</h2>
-			</div>
-		</div>
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-		<div data-role="page" id="Info">
-			<div data-role="header" class="logo">
-				<img src="images/logo.gif" />
-			</div>
-			<div data-role="content">
-                <div data-role="navbar" data-grid="d">
-                    <ul>
-                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
-                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
-                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
-                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
-                    </ul>
-                </div>
-                <h1>Device Info</h1>
-				<button onclick="showProperties()">Show Device Properties</button>
-                <div id="properties">  </div>
+        <!-- PAGE -->
+        <div data-role="page" id="recent">
+            <div data-role="header">
+                <h1>Job Ninja</h1>
+                <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
             </div>
-			<div data-role="footer" data-theme="c">
-				<h2 class="offline">Offline Mode</h2>
-			</div>
-		</div>
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-		<div data-role="page" id="accelerometerInfo">
-			<div data-role="header" class="logo">
-				<img src="images/logo.gif" />
-			</div>
-        	<div data-role="content">
-                <div data-role="navbar" data-grid="d">
+            <div data-role="content">
+                <button onclick="showGeo()">showGeo</button>
+                <p id="P1"></p>
+                <p id="P2"></p>
+                <div id="Div1"></div>
+                <button onclick="openWindow()">in-App browser BLOG</button>
+                <button onclick="showProperties()">Show Device Properties</button>
+                <div id="Div2">  </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
                     <ul>
-                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
-                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
-                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
-                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
+                        <li><a href="#recent" data-role="button" data-icon="bars">Recent</a></li>
+                        <li><a href="#categories" data-role="button" data-icon="gear">Categories</a></li>
+                        <li><a href="#search" data-role="button" data-icon="grid">Search</a></li>
+                        <li><a href="#blog" data-role="button" data-icon="star">Blog</a></li>
+                        <li><a href="#apply" data-role="button" data-icon="star">Apply</a></li>
                     </ul>
                 </div>
-                <h1>Accelerometer Info</h1>
-				<button onclick="onDeviceReady()">fire device ready</button>
-                <p id="aX">x coordinate</p>
-                <p id="aY">y coordinate</p>
-                <p id="aZ">z coordinate</p>
-                <p id="aTime">time</p>
             </div>
-			<div data-role="footer" data-theme="c">
-				<h2 class="offline">Offline Mode</h2>
-			</div>
-		</div>
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-		<div data-role="page" id="cameraInfo">
-			<div data-role="header" class="logo">
-				<img src="images/logo.gif" />
-			</div>
-			<div data-role="content">
-                <div data-role="navbar" data-grid="d">
+        </div>
+        <!-- PAGE -->
+        <div data-role="page" id="categories">
+            <div data-role="header">
+                <h1>Job Ninja</h1>
+                <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
+            </div>
+            <div data-role="content">
+
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
                     <ul>
-                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
-                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
-                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
-                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
+                        <li><a href="#recent" data-role="button" data-icon="bars">Recent</a></li>
+                        <li><a href="#categories" data-role="button" data-icon="gear">Categories</a></li>
+                        <li><a href="#search" data-role="button" data-icon="grid">Search</a></li>
+                        <li><a href="#blog" data-role="button" data-icon="star">Blog</a></li>
+                        <li><a href="#apply" data-role="button" data-icon="star">Apply</a></li>
                     </ul>
                 </div>
-                <h1>Image Info</h1>
-				<button onclick="window.open("http://www.tempworks.com","_blank", "location=yes");>in-App browser BLOG</button>
-                <p id="imageuri">image uri</p>
             </div>
-			<div data-role="footer" data-theme="c">
-				<h2 class="offline">Offline Mode</h2>
-			</div>
-		</div>
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <!-- PAGE BREAK PAGE BREAK PAGE BREAK -->
-        <div data-role="page" id="geolocation">
-			<div data-role="header" class="logo">
-				<img src="images/logo.gif" />
-			</div>
-			<div data-role="content">
-                <div data-role="navbar" data-grid="d">
+        </div>
+        <!-- PAGE -->
+        <div data-role="page" id="search">
+            <div data-role="header">
+                <h1>Job Ninja</h1>
+                <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
+            </div>
+            <div data-role="content">
+
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
                     <ul>
-                        <li><a href="#main" data-role="button" data-transition="flow" data-icon="home">Home</a></li>
-                        <li><a href="#Info" data-role="button" data-transition="flow" data-icon="bars">Device</a></li>
-                        <li><a href="#accelerometerInfo" data-role="button" data-transition="flow" data-icon="gear">Accel</a></li>
-                        <li><a href="#cameraInfo" data-role="button" data-transition="flow" data-icon="grid">Cam</a></li>
-                        <li><a href="#geolocation" data-role="button" data-transition="flow" data-icon="star">Geo</a></li>
+                        <li><a href="#recent" data-role="button" data-icon="bars">Recent</a></li>
+                        <li><a href="#categories" data-role="button" data-icon="gear">Categories</a></li>
+                        <li><a href="#search" data-role="button" data-icon="grid">Search</a></li>
+                        <li><a href="#blog" data-role="button" data-icon="star">Blog</a></li>
+                        <li><a href="#apply" data-role="button" data-icon="star">Apply</a></li>
                     </ul>
                 </div>
-                <h1>GeoLocation</h1>
-				<button onclick="showGeo()">showGeo</button>
-                <p id="lat"></p>
-                <p id="lon"></p>
-				<div id="map"></div>
             </div>
-			<div data-role="footer" data-theme="c">
-				<h2 class="offline">Offline Mode</h2>
-			</div>
-		</div>
+        </div>
+        <!-- PAGE -->
+        <div data-role="page" id="blog">
+            <div data-role="header">
+                <h1>Job Ninja</h1>
+                <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
+            </div>
+            <div data-role="content">
+
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#recent" data-role="button" data-icon="bars">Recent</a></li>
+                        <li><a href="#categories" data-role="button" data-icon="gear">Categories</a></li>
+                        <li><a href="#search" data-role="button" data-icon="grid">Search</a></li>
+                        <li><a href="#blog" data-role="button" data-icon="star">Blog</a></li>
+                        <li><a href="#apply" data-role="button" data-icon="star">Apply</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- PAGE -->
+        <div data-role="page" id="contact">
+            <div data-role="header">
+                <h1>Job Ninja</h1>
+                <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
+            </div>
+            <div data-role="content">
+
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#recent" data-role="button" data-icon="bars">Recent</a></li>
+                        <li><a href="#categories" data-role="button" data-icon="gear">Categories</a></li>
+                        <li><a href="#search" data-role="button" data-icon="grid">Search</a></li>
+                        <li><a href="#blog" data-role="button" data-icon="star">Blog</a></li>
+                        <li><a href="#apply" data-role="button" data-icon="star">Apply</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- PAGE -->
+        <div data-role="page" id="apply">
+            <div data-role="header">
+                <h1>Job Ninja</h1>
+                <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
+            </div>
+            <div data-role="content">
+
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#recent" data-role="button" data-icon="bars">Recent</a></li>
+                        <li><a href="#categories" data-role="button" data-icon="gear">Categories</a></li>
+                        <li><a href="#search" data-role="button" data-icon="grid">Search</a></li>
+                        <li><a href="#blog" data-role="button" data-icon="star">Blog</a></li>
+                        <li><a href="#apply" data-role="button" data-icon="star">Apply</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 	</body>
 </html>
 
