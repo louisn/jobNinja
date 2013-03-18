@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="format-detection" content="telephone-no">
-		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1 width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery.mobile-1.3.0.js"></script>
 		<title>jobFinder</title>
@@ -73,7 +73,7 @@
 		}
 			
 		function openWindow() {
-		    window.open("http://www.tempworks.com", "_blank", "location=yes");
+		    window.open(encodeURI('http://www.tempworks.com'),"_self","location=yes");
 		}
 
 
@@ -85,17 +85,22 @@
         <!-- PAGE -->
         <div data-role="page" id="recent">
             <div data-role="header">
-                <h1>Job Ninja</h1>
+                <h1>Job Ninja - Recent Jobs</h1>
                 <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
             </div>
             <div data-role="content">
-                <button onclick="showGeo()">showGeo</button>
-                <p id="lat"></p>
-                <p id="lon"></p>
-                <div id="map"></div>
-                <button onclick="openWindow()">in-App browser BLOG</button>
-                <button onclick="showProperties()">Show Device Properties</button>
-                <div id="properties">  </div>
+                <ul data-role="listview" data-filter="true">
+                    <li>Mechanical Engineer</li>
+                    <li>Web Developer</li>
+                    <li>Pixel Pusher</li>
+                    <li>Code Monkey</li>
+                    <li>Trash Man</li>
+                    <li>Secretary</li>
+                    <li>Flight Attendant</li>
+                    <li>Pizza Delivery</li>
+                    <li>Sandwich Artist</li>
+                    <li>Sanitation Specialist</li>
+                </ul>
             </div>
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
@@ -112,18 +117,15 @@
         <!-- PAGE -->
         <div data-role="page" id="categories">
             <div data-role="header">
-                <h1>Job Ninja</h1>
+                <h1>Job Ninja - Job Categories</h1>
                 <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
             </div>
             <div data-role="content">
-                <div data-role="collapsible">
-
-                </div>
-                <ul data-role="listview">
-                    <li>list</li>
-                    <li>view</li>
-                    <li>data</li>
-                    <li>role</li>
+                <ul data-role="listview" data-filter="true">
+                    <li>Information Technology</li>
+                    <li>Marketing</li>
+                    <li>Service Industry</li>
+                    <li>Labor</li>
                 </ul>
             </div>
             <div data-role="footer" data-position="fixed">
@@ -141,7 +143,7 @@
         <!-- PAGE -->
         <div data-role="page" id="search">
             <div data-role="header">
-                <h1>Job Ninja</h1>
+                <h1>Job Ninja - Search</h1>
                 <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
             </div>
             <div data-role="content">
@@ -154,9 +156,6 @@
                     
                         <label>Zip Code:</label>
                         <input type="text" />
-
-                        <label>Search</label>
-                        <input type="search" />
                     
                         <label>Radius</label>
                         <select>
@@ -192,11 +191,11 @@
         <!-- PAGE -->
         <div data-role="page" id="blog">
             <div data-role="header">
-                <h1>Job Ninja</h1>
+                <h1>Job Ninja - Blog</h1>
                 <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
             </div>
             <div data-role="content">
-
+                <button onclick="openWindow()">in-App browser BLOG</button>
             </div>
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
@@ -213,11 +212,11 @@
         <!-- PAGE -->
         <div data-role="page" id="contact">
             <div data-role="header">
-                <h1>Job Ninja</h1>
+                <h1>Job Ninja - Contact</h1>
                 <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
             </div>
             <div data-role="content">
-
+                <h2>Call me! 212-479-7990</h2>
             </div>
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
@@ -234,11 +233,16 @@
         <!-- PAGE -->
         <div data-role="page" id="apply">
             <div data-role="header">
-                <h1>Job Ninja</h1>
+                <h1>Job Ninja - Apply</h1>
                 <a href="#contact" data-role="button" data-icon="star">Contact Us</a>
             </div>
             <div data-role="content">
-
+                <button onclick="showGeo()">showGeo</button>
+                <p id="lat"></p>
+                <p id="lon"></p>
+                <div id="map"></div>
+                <button onclick="showProperties()">Show Device Properties</button>
+                <div id="properties">  </div>
             </div>
             <div data-role="footer" data-position="fixed">
                 <div data-role="navbar">
